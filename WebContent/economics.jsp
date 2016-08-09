@@ -1,0 +1,174 @@
+<%@page import="com.tm.gen.Classify"%>
+<%@page import="java.util.StringTokenizer"%>
+<%@page import="java.util.Scanner"%>
+<%@page import="java.io.File"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body bgcolor="#FFE6E6">
+
+<%-- <jsp:forward page="economy"></jsp:forward> --%>
+<%-- <jsp:include page=""></jsp:include> --%>
+
+
+<center>
+		<h2>
+			<font color="darkblue">Text Data Mining On BBC Data Sets</font>
+		</h2>
+	</center>
+	<table align="right" border="0" >
+		<tr>
+			<td bgcolor="red"><a href="business.jsp"><font color="white">Business</font></a></td><td></td>
+			<td bgcolor="white"><a href="politics.jsp"><font color="red">Politics</font></a></td><td></td>
+			<td bgcolor="white"><a href="tech.jsp"><font color="red">Technology</font></a></td><td></td>
+			<td bgcolor="white"><a href="enter.jsp"><font color="red">Entertainment</font></a></td><td></td>
+			<td bgcolor="white"><a href="sports.jsp"><font color="red">Sports</font></a></td><td></td>
+			
+			<td bgcolor="white"><a href="index.html"><font color="red">Log Out</font></a></td><td></td>
+		</tr>
+	</table>
+	<br /><br />
+	
+	<table align="left" border="0" >
+		<tr>
+			<td bgcolor="red"><a href="economics.jsp"><font color="white">Economics</font></a></td><td></td>
+			<td bgcolor="white"><a href="trades.jsp"><font color="red">Trades</font></a></td><td></td>
+			<td bgcolor="white"><a href="bus_others.jsp"><font color="red">Others</font></a></td><td></td>
+			<!-- <td bgcolor="white"><a href="enter.jsp"><font color="red">Entertainment</font></a></td><td></td>
+			<td bgcolor="white"><a href="tech.jsp"><font color="red">Technology</font></a></td><td></td>
+			<td bgcolor="white"><a href="index.html"><font color="red">Log Out</font></a></td><td></td> -->
+		</tr>
+	</table>
+<br /><br />
+
+<%	//out.println("h2222222"); 
+ArrayList<String> al=new ArrayList<String>();
+StringTokenizer al_data=null;
+Classify clasify= new Classify();
+al=clasify.classifyIt();
+//out.println(al);
+//out.println("<html>");
+//out.println("<body bgcolor=\"#FFE6E6\">");
+
+
+String fileName=null;
+
+String category_code=null;
+String first_line=null;
+Scanner scanned_data=null;
+
+for(int i=0;i<al.size();i++)
+{
+//	out.println(al.get(i));
+//	out.println("<br />");
+	al_data=new StringTokenizer(al.get(i));
+	int index=0;
+	String fname=null;
+	String lname=null;
+	while(al_data.hasMoreTokens())
+	{
+		if(index==0)
+		{
+			category_code=al_data.nextToken();
+		}
+		if(index==1)
+		{
+			fname=al_data.nextToken();
+		}
+		if(index==2)
+		{
+			lname=al_data.nextToken();
+		}
+		//out.println(category_code);
+		//out.println("<br />");
+		index++;
+	}
+	fileName=fname+" "+lname;
+	//out.println(category_code+"----"+fileName);
+	if(category_code.equals("bs_eco"))
+	{
+		File file=new File("D:\\do not delete\\bbc\\"+fileName);
+		scanned_data=new Scanner(file);
+		if(scanned_data.hasNextLine())
+		{
+			first_line=scanned_data.nextLine();
+			out.println("<a href=\"exploreData.jsp?p="+fileName+"\">"+first_line+"</a>");
+		}
+		out.println();
+		out.println("<br />");
+		out.println("<br />");
+	}
+	
+	
+	}
+
+%>
+<%-- 
+<%
+ArrayList<String> al=new ArrayList<String>();
+StringTokenizer al_data=null;
+Classify clasify= new Classify();
+al=clasify.classifyIt();
+
+
+out.println("<html>");
+out.println("<body bgcolor=\"#FFE6E6\">");
+out.println("");
+int index=0;
+String fileName=null;
+String fname=null;
+String lname=null;
+String category_code=null;
+String first_line=null;
+Scanner scanned_data=null;
+
+for(int i=0;i<al.size();i++)
+{
+	al_data=new StringTokenizer(al.get(i));
+	while(al_data.hasMoreElements())
+	{
+		if(index==0)
+		{
+			category_code=al_data.nextToken();
+		}
+		if(index==1)
+		{
+			fname=al_data.nextToken();
+		}
+		if(index==2)
+		{
+			lname=al_data.nextToken();
+		}
+		index++;
+	}
+	fileName=fname+" "+lname;
+	if(category_code.equalsIgnoreCase("bs_eco"));
+	{
+		File text_file=new File("D:\\do not delete\\bbc\\"+fileName);
+		scanned_data=new Scanner(text_file);
+		if(scanned_data.hasNextLine())
+		{
+			first_line=scanned_data.nextLine();
+		}
+		
+		out.println("<a href=\"economy_view?p="+fileName+"\">"+first_line+"</a>");
+		//out.println("<form>");
+		out.println("<br />");
+	//	out.println("</form>");
+	}
+}
+// TODO Auto-generated method stub
+//super.service(arg0, arg1);
+
+out.println("</body>");
+out.println("</html>");
+
+%>
+
+ --%>

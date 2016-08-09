@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+<servlet>
+<servlet-name>mining</servlet-name>
+<servlet-class>com.tm.gen.Mining</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>mining</servlet-name>
+<url-pattern>/mining</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>logedIn</servlet-name>
+<servlet-class>com.tm.gen.LogedInServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>logedIn</servlet-name>
+<url-pattern>/logedIn</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>business</servlet-name>
+<servlet-class>com.tm.bus.BusinessServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>business</servlet-name>
+<url-pattern>/business</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+<servlet-name>economy</servlet-name>
+<servlet-class>com.tm.bus.Economics</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>economy</servlet-name>
+<url-pattern>/economy</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>viewData</servlet-name>
+<servlet-class>com.tm.bus.ViewData</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>viewData</servlet-name>
+<url-pattern>/viewData</url-pattern>
+</servlet-mapping>
+
+</web-app>
