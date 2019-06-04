@@ -11,3 +11,4 @@ CONTRIBUTION - OPEN PROBLEMS AND FUTURE RESEARCH CHALLENGES:
 
 The information is increasing tremendously day by day and it has become very difficult to maintain it into relevant databases. So, here we are intending to classify the data into relevant groups. However, taking only Naïve Bayes’ would be projecting a problem that data is not being organized well. Similarly, taking into account only one particular algorithm and training the model would not give accurate results. Hence, a combination of two or three different algorithms would assist the model in projecting effective results. 
 Testtstst
+12347181
