@@ -1,4 +1,4 @@
-# Data-Mining
+﻿# Data-Mining
 
 Text mining generally refers to the process of extracting interesting patterns or knowledge from unstructured text documents. Some data mining techniques are used to extract the useful information from text documents such as classification, clustering, visualization and information extraction. It is a big challenge to ensure the quality of discovered features because of large scale data patterns.
 
@@ -12,3 +12,4 @@ CONTRIBUTION - OPEN PROBLEMS AND FUTURE RESEARCH CHALLENGES:
 The information is increasing tremendously day by day and it has become very difficult to maintain it into relevant databases. So, here we are intending to classify the data into relevant groups. However, taking only Naïve Bayes’ would be projecting a problem that data is not being organized well. Similarly, taking into account only one particular algorithm and training the model would not give accurate results. Hence, a combination of two or three different algorithms would assist the model in projecting effective results. 
 Testtstst
 123456171
+Opened In Desktop
